@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería del Siglo XXI: La Era de la Transformación</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+   
+    <header class="header header-main" id="inicio">
+
+        
+        <canvas id="starfield"></canvas>
+
+        
+        <div class="menu">
+            <div class="menu-content container">
+                <a href="index.html" class="logo">SIGLO XXI</a>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="index.html" class="active">Inicio</a></li>
+                        <li><a href="avances.html">Avances</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="personajes.html">Personajes</a></li>
+                        <li><a href="etica-ia.html">Ética IA</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        
+        <div class="header-content container">
+            <h1>Forjando el Mañana: La Revolución de la Ingeniería</h1>
+            <p>"El futuro no es tecnológico, el futuro somos nosotros con tecnología." Descubre cómo la innovación define nuestra era.</p>
+            <a href="avances.html" class="btn btn-primary btn-vibrate">Explorar Innovaciones</a>
+             
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="caracteristicas" class="caracteristicas-impacto">
+            <div class="container">
+                <div class="grid-layout-hp">
+                    <div class="columna-hp">
+                        <h2>Características del Siglo XXI</h2>
+                        <ul>
+                            <li><i class="fas fa-rocket icon-list"></i> La automatización ha aumentado la productividad, pero también ha cambiado drásticamente el panorama laboral global.</li>
+                            <li><i class="fas fa-wifi icon-list"></i> El acceso ubicuo a internet y la tecnología móvil han interconectado a personas y empresas en todo el mundo como nunca antes.</li>
+                            <li><i class="fas fa-cloud icon-list"></i> Predominio de la economía digital, basada en datos, servicios online y plataformas globales.</li>
+                            <li><i class="fas fa-users icon-list"></i> Mayor conciencia social y ambiental, impulsando la búsqueda de soluciones sostenibles.</li>
+                        </ul>
+                    </div>
+                    <div class="columna-hp">
+                        <h2>El Impacto de la Ingeniería de Software</h2>
+                         <ul>
+                            <li><i class="fas fa-heartbeat icon-list"></i> Sensores y dispositivos inteligentes (IoT) que monitorean la salud y entornos en tiempo real, permitiendo respuestas proactivas.</li>
+                            <li><i class="fas fa-globe-americas icon-list"></i> Plataformas digitales robustas han permitido la globalización sin precedentes de negocios y comunicaciones.</li>
+                            <li><i class="fas fa-leaf icon-list"></i> Software especializado para optimizar el uso de recursos energéticos y materiales, reduciendo el impacto ecológico.</li>
+                            <li><i class="fas fa-brain icon-list"></i> Desarrollo de Inteligencia Artificial que redefine la toma de decisiones, la creatividad y la interacción humano-máquina.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="impacto-general">
+                     <h3>La Tecnología No Nos Cambia, Nos Transforma</h3>
+                     <p>“En el 2000, solo el 5% de la población tenía internet; hoy, más del 65% está conectado.” Esta hiperconectividad redefine cómo aprendemos, trabajamos y vivimos.</p>
+                    <h4>Áreas Clave de Impacto:</h4>
+                     <div class="areas-impacto-icons">
+                         <span><i class="fas fa-graduation-cap"></i> Educación (Online)</span>
+                         <span><i class="fas fa-laptop-medical"></i> Medicina (Telemedicina, Cirugía Robótica)</span>
+                         <span><i class="fas fa-seedling"></i> Medio Ambiente (Renovables, Sostenibilidad)</span>
+                     </div>
+                 </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="quote">"¿La tecnología nos hace más humanos o más dependientes?"</p>
+            <div class="footer-links">
+                 <span>SIGLO XXI Project</span> |
+                 <a href="contacto.html">Contacto</a>
+            </div>
+            <p>𓆩2025 Universidad Surcolombiana | Explorando los límites de la ingeniería del siglo XXI.𓆪</p>
+        </div>
+    </footer>
+
+    
+    <script src="script.js"></script>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const starfieldCanvas = document.getElementById("starfield");
+            const headerElement = document.querySelector('.header-main'); // Referencia al contenedor
+
+            if (starfieldCanvas && headerElement) { // Ejecutar solo si existen los elementos
+                const starfieldCtx = starfieldCanvas.getContext("2d");
+                let stars = [];
+                const numStars = 4500; // Puedes ajustar la cantidad
+                let animationFrameId = null; // Para cancelar animación si es necesario
+
+                // Establece las dimensiones del canvas según el header
+                function setCanvasDimensions() {
+                    starfieldCanvas.width = headerElement.offsetWidth;
+                    starfieldCanvas.height = headerElement.offsetHeight;
+                }
+
+                // Clase para cada estrella
+                class Star {
+                    constructor() {
+                        this.reset();
+                    }
+                    reset() {
+                        // Posición inicial relativa al centro y dimensiones del header
+                        this.x = (Math.random() - 0.5) * starfieldCanvas.width * 1.5;
+                        this.y = (Math.random() - 0.5) * starfieldCanvas.height * 1.5;
+                        // Profundidad basada en ancho para perspectiva
+                        this.z = Math.random() * (starfieldCanvas.width * 0.8) + (starfieldCanvas.width * 0.1); // Empezar un poco más lejos
+                        this.size = Math.random() * 1.8 + 0.4; // Tamaño base
+                        // Velocidad ajustada por el tamaño del header (más rápido en headers más grandes)
+                        this.speed = (Math.random() * 2 + 0.5) * (starfieldCanvas.width / 1400); // Normalizar velocidad base
+                        this.blink = Math.random() * Math.PI * 2; // Fase de parpadeo
+                    }
+                    update() {
+                        this.z -= this.speed;
+                        if (this.z <= 1) { // Reinicia si está demasiado cerca o detrás
+                            this.reset();
+                        }
+                        this.blink += 0.03; // Velocidad de parpadeo
+                    }
+                    draw() {
+                        // Proyección 3D a 2D (simplificada)
+                        const scaleFactor = Math.min(starfieldCanvas.width, starfieldCanvas.height) / 2; // Ajusta profundidad
+                        const scale = scaleFactor / this.z;
+                        const projX = this.x * scale + starfieldCanvas.width / 2;
+                        const projY = this.y * scale + starfieldCanvas.height / 2;
+                        const radius = Math.max(0.1, this.size * scale); // Tamaño proyectado
+                        const opacity = 0.6 + 0.4 * Math.abs(Math.sin(this.blink)); // Parpadeo (0.6 a 1.0)
+
+                        // Optimización: No dibujar si está fuera de pantalla
+                         if (projX < -radius || projX > starfieldCanvas.width + radius || projY < -radius || projY > starfieldCanvas.height + radius) {
+                            return; // No malgastar recursos dibujando fuera
+                        }
+
+                        // Dibujar la estrella
+                        starfieldCtx.beginPath();
+                        starfieldCtx.arc(projX, projY, radius, 0, Math.PI * 2);
+                        // Color blanco-azulado con parpadeo
+                        starfieldCtx.fillStyle = `rgba(215, 235, 255, ${opacity * 0.85})`; // Ajusta color/opacidad
+                        starfieldCtx.fill();
+                    }
+                }
+
+                // Inicializa o reinicializa las estrellas
+                function initializeStars() {
+                    stars = [];
+                    setCanvasDimensions(); // Asegura dimensiones correctas
+                    for (let i = 0; i < numStars; i++) {
+                        stars.push(new Star());
+                    }
+                }
+
+                // Bucle principal de animación
+                function animateStarfield() {
+                    // Limpia con fondo oscuro semitransparente para efecto de estela
+                    starfieldCtx.fillStyle = "rgba(2, 2, 20, 0.3)"; // Ajusta alpha para estela más/menos larga
+                    starfieldCtx.fillRect(0, 0, starfieldCanvas.width, starfieldCanvas.height);
+
+                    // Actualiza y dibuja cada estrella
+                    stars.forEach(star => {
+                        star.update();
+                        star.draw();
+                    });
+
+                    // Continúa la animación
+                    animationFrameId = requestAnimationFrame(animateStarfield);
+                }
+
+                // Manejador para el evento de redimensionar ventana
+                function handleResize() {
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId); // Detiene animación
+                    }
+                    initializeStars(); // Reinicializa estrellas con nuevas dimensiones
+                    animateStarfield(); // Comienza de nuevo
+                }
+
+                // --- Arranque ---
+                initializeStars(); // Crea las estrellas iniciales
+                animateStarfield(); // Empieza la animación
+
+                // --- Listener para Redimensionar (con debounce) ---
+                let resizeTimer;
+                window.addEventListener("resize", () => {
+                    clearTimeout(resizeTimer);
+                    // Espera un poco después de que el usuario deje de redimensionar
+                    resizeTimer = setTimeout(handleResize, 150);
+                });
+
+            } // Fin if (elementos existen)
+        }); // Fin DOMContentLoaded
+    </script>
+
+</body>
+</html>

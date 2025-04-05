@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avances Clave del Siglo XXI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu">
+             <div class="menu-content container">
+                <a href="index.html" class="logo">SIGLO XXI</a>
+                <nav class="navbar">
+                     <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="avances.html" class="active">Avances</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="personajes.html">Personajes</a></li>
+                        <li><a href="etica-ia.html">Ética IA</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="advances section-page" id="avances">
+            <div class="container section-title">
+                <h2>Avances Clave del Siglo XXI</h2>
+                <p>Tecnologías disruptivas que están redefiniendo industrias y nuestra vida diaria.</p>
+            </div>
+
+            <!-- Start of New Rotating Card Section -->
+            <div class="wrapper container"> 
+                <div class="inner" style="--w: 300px; --h: 450px; --quantity: 5;"> 
+                    
+                    <article class="advances-item clickable-card card"  {/* Added 'card' class */}
+                             style="--index: 1;"                     {/* Added '--index' */}
+                             data-modal-target="#details-modal"
+                             data-title="Inteligencia Artificial (IA)"
+                             data-description="**Resumen:** Rama de la informática que busca desarrollar sistemas capaces de realizar tareas que normalmente requieren inteligencia humana.\n\n**Características Clave:**\n- **Aprendizaje Automático (Machine Learning):** Algoritmos que permiten a las máquinas aprender de datos sin ser programadas explícitamente.\n- **Procesamiento del Lenguaje Natural (NLP):** Interacción entre computadoras y lenguaje humano.\n- **Visión por Computadora:** Permite a las máquinas 'ver' e interpretar imágenes.\n- **Redes Neuronales Profundas (Deep Learning):** Modelos computacionales complejos inspirados en el cerebro humano, esenciales para tareas de IA avanzadas.\n\n**Ejemplos:** Asistentes virtuales (Siri, Alexa), coches autónomos, reconocimiento facial, chatbots, diagnóstico médico asistido por IA.">
+                        <img src="images/ai.jpg.jpeg" alt="Visualización abstracta de Inteligencia Artificial">
+                        <div class="item-content">
+                            <h3>Inteligencia Artificial</h3>
+                            <p>Descubre cómo la IA aprende y razona para transformar nuestro mundo.</p>
+                        </div> 
+                    </article>
+
+                    
+                    <article class="advances-item clickable-card card"  {/* Added 'card' class */}
+                             style="--index: 2;"                     {/* Added '--index' */}
+                             data-modal-target="#details-modal"
+                             data-title="Exploración Espacial Comercial"
+                             data-description="**Resumen:** La exploración espacial impulsada por empresas privadas, reduciendo costes y abriendo nuevas posibilidades fuera de la órbita terrestre.\n\n**Características:**\n- **Cohetes Reutilizables:** SpaceX Falcon 9 reduce drásticamente costes al poder reutilizar la primera etapa.\n- **Turismo Espacial:** Vuelos suborbitales y orbitales para particulares (Blue Origin, Virgin Galactic, SpaceX).\n- **Mega-Constelaciones de Satélites:** Proyectos como Starlink (SpaceX) para internet global de banda ancha desde el espacio.\n- **Planes de Colonización:** Proyectos a largo plazo para establecer bases en la Luna (Artemis) y Marte (SpaceX Starship).\n\n**Empresas Clave:** SpaceX, Blue Origin, Virgin Galactic.">
+                        <img src="images/spacex.jpg.jpeg" alt="Cohete despegando hacia el espacio exterior">
+                         <div class="item-content">
+                            <h3>Exploración Espacial</h3>
+                            <p>La nueva era comercial del espacio: cohetes reutilizables y turismo orbital.</p>
+                         </div>
+                    </article>
+
+                    
+                    <article class="advances-item clickable-card card"  {/* Added 'card' class */}
+                             style="--index: 3;"                     {/* Added '--index' */}
+                             data-modal-target="#details-modal"
+                             data-title="Revolución Biotecnológica (CRISPR)"
+                             data-description="**Resumen:** Avances que permiten modificar y entender los sistemas biológicos a un nivel molecular sin precedentes.\n\n**Características Clave:**\n- **Edición Genética CRISPR-Cas9:** Herramienta 'tijeras genéticas' que permite modificar el ADN de forma precisa y sencilla.\n- **Terapias Génicas:** Tratamiento de enfermedades hereditarias corrigiendo genes defectuosos.\n- **Vacunas de ARNm:** Desarrollo rápido y flexible de vacunas (como las de COVID-19) usando ARN mensajero.\n- **Biología Sintética:** Diseño y construcción de nuevos sistemas y funciones biológicas.\n\n**Ejemplos de Impacto:** Terapias contra el cáncer, agricultura más resistente y nutritiva, diagnóstico de enfermedades infecciosas.">
+                        <img src="images/biotech.jpg.jpeg" alt="Representación de cadena de ADN y biotecnología">
+                         <div class="item-content">
+                            <h3>Biotecnología</h3>
+                            <p>CRISPR y ARNm están redefiniendo la medicina y la biología.</p>
+                         </div>
+                    </article>
+
+                    
+                    <article class="advances-item clickable-card card"  {/* Added 'card' class */}
+                             style="--index: 4;"                     {/* Added '--index' */}
+                             data-modal-target="#details-modal"
+                             data-title="Robótica Avanzada y Automatización"
+                             data-description="**Resumen:** Robots más inteligentes, versátiles y seguros, trabajando junto a humanos en diversas industrias y servicios.\n\n**Características:**\n- **Robots Colaborativos (Cobots):** Diseñados para interactuar de forma segura con humanos.\n- **Robótica Móvil Autónoma:** Robots capaces de navegar y tomar decisiones en entornos complejos sin control remoto.\n- **Integración de IA:** Uso de inteligencia artificial para mejorar la toma de decisiones y adaptación de robots.\n- **Sensores Avanzados y Visión:** Robots con capacidades sensoriales mejoradas para tareas precisas.\n\n**Aplicaciones:** Manufactura, logística y almacenes automatizados, cirugía de precisión, exploración y rescate.">
+                        <img src="images/robotics.jpg.png" alt="Brazo robótico industrial de alta precisión">
+                         <div class="item-content">
+                            <h3>Robótica Avanzada</h3>
+                            <p>Conoce los cobots, la IA integrada y la automatización industrial.</p>
+                         </div>
+                    </article>
+
+                    
+                    <article class="advances-item clickable-card card"  {/* Added 'card' class */}
+                             style="--index: 5;"                     {/* Added '--index' */}
+                             data-modal-target="#details-modal"
+                             data-title="Transición a Energías Renovables"
+                             data-description="**Resumen:** Desplazamiento de combustibles fósiles por fuentes de energía limpias, impulsado por la necesidad de mitigar el cambio climático.\n\n**Características:**\n- **Energía Solar Fotovoltaica:** Paneles solares convierten luz solar directamente en electricidad. Mayor despliegue y reducción de costes.\n- **Energía Eólica:** Turbinas eólicas aprovechan la energía del viento. Aumento de capacidad y eficiencia.\n- **Almacenamiento Energético:** Baterías de iones de litio a gran escala para almacenar energía renovable y equilibrar la red.\n- **Redes Eléctricas Inteligentes (Smart Grids):** Gestionan la producción y distribución de energía renovable de forma eficiente y flexible.\n\n**Tecnologías Clave:** Paneles solares de perovskita, baterías de estado sólido, hidrogenera verde.">
+                        <img src="images/renewable.jpg.png" alt="Paisaje con turbinas eólicas y paneles solares">
+                        <div class="item-content">
+                            <h3>Energías Renovables</h3>
+                            <p>El impulso de la energía solar y eólica contra el cambio climático.</p>
+                        </div>
+                    </article>
+                     
+
+                </div> 
+            </div> 
+           
+
+        </section>
+    </main>
+
+    <footer class="footer">
+         <div class="container"><p class="quote">"La tecnología es mejor cuando junta a la gente."</p><div class="footer-links"><span>SIGLO XXI Project</span> | <a href="contacto.html">Contacto</a></div><p>𓆩2025 Universidad Surcolombiana | Explorando los límites de la ingeniería del siglo XXI.𓆪</p></div>
+    </footer>
+
+
+    <div class="modal" id="details-modal" aria-hidden="true">
+          <div class="modal-overlay" tabindex="-1" data-micromodal-close></div>
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <header class="modal-header">
+                <h3 class="modal-title" id="modal-title"></h3>
+                <button class="modal-close-btn" aria-label="Cerrar modal" data-micromodal-close>✕</button>
+            </header>
+            <div class="modal-content" id="modal-content-area">
+                
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

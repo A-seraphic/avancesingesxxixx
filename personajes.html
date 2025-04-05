@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes Clave de la Ingeniería del Siglo XXI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+     <header class="header">
+        <div class="menu">
+             <div class="menu-content container">
+                <a href="index.html" class="logo">SIGLO XXI</a>
+                <nav class="navbar">
+                     <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="avances.html">Avances</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="personajes.html" class="active">Personajes</a></li>
+                        <li><a href="etica-ia.html">Ética IA</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="personajes" class="personajes section-page">
+             <div class="container section-title">
+                <h2>Pioneros del Siglo XXI</h2>
+                <p>Visionarios e ingenieros cuyas contribuciones están definiendo nuestra era tecnológica.</p>
+            </div>
+
+            <!-- Timeline Container -->
+            <ul class="personajes-timeline container">
+
+                <!-- Timeline Item 1: Elon Musk -->
+                <li class="timeline-item clickable-card"
+                    data-modal-target="#details-modal"
+                    data-title="Elon Musk"
+                    data-description="Nacido en Sudáfrica (1971), es un empresario, inversor e ingeniero. Cofundador de PayPal, posteriormente fundó SpaceX (revolución aeroespacial con cohetes reutilizables, Starlink), Tesla, Inc. (líder en vehículos eléctricos, energía solar y baterías), Neuralink (interfaces cerebro-máquina) y The Boring Company (túneles). Su importancia radica en abordar problemas monumentales con ingeniería disruptiva, acelerando la transición energética, la exploración espacial privada y explorando los límites de la IA y la neurociencia. Figura polarizante pero indudablemente influyente en la dirección tecnológica del siglo.">
+
+                    <div class="timeline-image">
+                         <img src="images/elon_musk.png" alt="Retrato de Elon Musk">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Elon Musk</h3>
+                        <p>Fundador de Tesla, SpaceX y Neuralink, ha transformado
+                            la industria automotriz con autos eléctricos de alto rendimiento.
+                            Lidera avances en exploración espacial y neurotecnología futurista.
+                            </p>
+                    </div>
+                </li>
+
+                <!-- Timeline Item 2: Jeff Bezos -->
+                 <li class="timeline-item clickable-card"
+                     data-modal-target="#details-modal"
+                     data-title="Jeff Bezos"
+                     data-description="Nacido en EE. UU. (1964), es el fundador de Amazon. Comenzó como una librería en línea en 1994 y la convirtió en el mayor gigante mundial de e-commerce, logística y, crucialmente, computación en la nube con Amazon Web Services (AWS), que potencia gran parte de la infraestructura digital actual. También fundó Blue Origin en 2000, empresa aeroespacial privada enfocada en cohetes reutilizables y turismo espacial. Su impacto reside en transformar radicalmente el comercio minorista, definir el modelo de negocio de la nube y ser un pionero de la nueva carrera espacial comercial.">
+
+                     <div class="timeline-image">
+                         <img src="images/jeffbezotes.png" alt="Retrato de Jeff Bezos">
+                     </div>
+                     <div class="timeline-content">
+                         <h3>Jeff Bezos</h3>
+                         <p>Creador de Amazon, revolucionó el comercio electrónico global
+                            y cambió la logística con entregas rápidas y automatizadas.
+                            Su plataforma AWS lidera la infraestructura de servicios en la nube.</p>
+                     </div>
+                 </li>
+
+                 <!-- Timeline Item 3: Jennifer Doudna -->
+                 <li class="timeline-item clickable-card"
+                     data-modal-target="#details-modal"
+                     data-title="Jennifer Doudna"
+                     data-description="Nacida en EE. UU. (1964), es una bioquímica y genetista. Ganadora del Premio Nobel de Química 2020 junto a Emmanuelle Charpentier por el desarrollo de CRISPR-Cas9, una herramienta revolucionaria y precisa para la edición del genoma. Esta tecnología permite modificar el ADN de manera mucho más simple y económica que métodos anteriores. Su importancia es monumental: ha abierto nuevas vías para tratar enfermedades genéticas, desarrollar diagnósticos rápidos, mejorar cultivos y avanzar en la investigación biológica fundamental, marcando un antes y un después en la biotecnología.">
+
+                     <div class="timeline-image">
+                         <img src="images/jani.png" alt="Retrato de Jennifer Doudna">
+                     </div>
+                     <div class="timeline-content">
+                         <h3>Jennifer Doudna</h3>
+                         <p>Bioquímica pionera en la edición genética con CRISPR-Cas9,
+                            herramienta que permite modificar el ADN con precisión.
+                            Sus investigaciones abren puertas al tratamiento de enfermedades genéticas.
+                            </p>
+                     </div>
+                 </li>
+
+                 <!-- Timeline Item 4: Tim Berners-Lee -->
+                 <li class="timeline-item clickable-card"
+                     data-modal-target="#details-modal"
+                     data-title="Tim Berners-Lee"
+                     data-description="Nacido en Reino Unido (1955), es un científico de la computación, conocido como el inventor de la World Wide Web. En 1989, propuso un sistema de gestión de información y desarrolló las tecnologías fundamentales: HTTP, HTML y URL. Aunque la invención es previa al s. XXI, su importancia actual es indiscutible. Como director del World Wide Web Consortium (W3C), supervisa el desarrollo de estándares web. Es un firme defensor de la neutralidad de la red, la privacidad de los datos y una web abierta y accesible para todos, principios cruciales en la evolución de internet en este siglo.">
+
+                     <div class="timeline-image">
+                        <img src="images/lee.png" alt="Retrato de Tim Berners-Lee">
+                     </div>
+                     <div class="timeline-content">
+                         <h3>Tim Berners-Lee</h3>
+                         <p>Inventó la World Wide Web, base de la Internet moderna
+                            y del hipertexto con los navegadores web.
+                            Promueve una red descentralizada, ética y accesible para todos.</p>
+                     </div>
+                 </li>
+
+            </ul> <!-- End .personajes-timeline -->
+        </section>
+    </main>
+
+   <footer class="footer">
+        <div class="container"><p class="quote">"La ciencia de hoy es la tecnología del mañana." - Edward Teller</p><div class="footer-links"><span>SIGLO XXI Project</span> | <a href="contacto.html">Contacto</a></div><p>𓆩2025 Universidad Surcolombiana | Explorando los límites de la ingeniería del siglo XXI.𓆪</p></div>
+    </footer>
+
+
+     <div class="modal" id="details-modal" aria-hidden="true">
+          <div class="modal-overlay" tabindex="-1" data-micromodal-close></div>
+        <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <header class="modal-header">
+                <h3 class="modal-title" id="modal-title"></h3>
+                <button class="modal-close-btn" aria-label="Cerrar modal" data-micromodal-close>✕</button>
+            </header>
+            <div class="modal-content" id="modal-content-area">
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,328 @@
+/* Importar Font (opcional) */
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap'); */
+
+/* Fondo general */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Oculta scroll */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000; /* Mantenemos fondo negro del espacio */
+    color: white;
+}
+
+/* Estrellas en canvas */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Capa más baja */
+}
+
+/* --- ESTILOS PARA ELEMENTOS FLOTANTES --- */
+#wall-e, #spaceship, #body-float, .meteor {
+    position: fixed;
+    z-index: 1;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    opacity: 0; /* Inician invisibles */
+    transition: opacity 0.5s ease; /* Transición para aparecer al cargar imagen */
+    /* Tamaños específicos */
+    /* top, left, transform controlados por JS */
+}
+#wall-e { width: 180px; }
+#spaceship { width: 280px; }
+#body-float { width: 100px; }
+.meteor { width: 170px; } /* Tamaño aumentado */
+
+
+/* Pantalla de carga */
+#loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.85);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+#loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- ESTILOS SVG LOADER --- */
+.loader-svg-server { width: 250px; height: auto; overflow: visible; }
+@keyframes fade-particles{0%,100%{opacity:1}50%{opacity:.5}} @keyframes floatUp{0%{transform:translateY(0);opacity:0}10%{opacity:1}100%{transform:translateY(-40px);opacity:0}} @keyframes bounce-lines{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}} .loader-svg-server #particles{animation:fade-particles 5s infinite alternate} .loader-svg-server .particle{animation:floatUp linear infinite} .loader-svg-server .p1{animation-duration:2.2s;animation-delay:0s} .loader-svg-server .p2{animation-duration:2.5s;animation-delay:.3s} .loader-svg-server .p3{animation-duration:2s;animation-delay:.6s} .loader-svg-server .p4{animation-duration:2.8s;animation-delay:.2s} .loader-svg-server .p5{animation-duration:2.3s;animation-delay:.4s} .loader-svg-server .p6{animation-duration:3s;animation-delay:.1s} .loader-svg-server .p7{animation-duration:2.1s;animation-delay:.5s} .loader-svg-server .p8{animation-duration:2.6s;animation-delay:.2s} .loader-svg-server .p9{animation-duration:2.4s;animation-delay:.3s} .loader-svg-server #line-v1,.loader-svg-server #line-v2,.loader-svg-server #node-server,.loader-svg-server #panel-rigth,.loader-svg-server #reflectores,.loader-svg-server #particles{animation:bounce-lines 3s ease-in-out infinite alternate} .loader-svg-server #line-v2{animation-delay:.2s} .loader-svg-server #node-server,.loader-svg-server #panel-rigth,.loader-svg-server #reflectores,.loader-svg-server #particles{animation-delay:.4s}
+
+/* === INICIO: ESTILOS NUEVO BOTÓN DE EMERGENCIA === */
+
+/* Contenedor principal del botón */
+.emergency-button-container {
+    /* Posicionamiento fijo y centrado (como el botón antiguo) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5; /* Misma capa que el botón antiguo */
+
+    /* Estilos propios del nuevo botón */
+    width: 160px;
+    height: 180px;
+    cursor: pointer;
+    perspective: 700px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.6));
+    -webkit-filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.6));
+
+    /* Estado inicial y transición (como el botón antiguo) */
+    display: none; /* Inicialmente oculto */
+    opacity: 0;
+    transition: opacity 0.8s ease-in; /* Fade-in al aparecer */
+}
+
+/* Base amarilla/negra */
+.base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 130px;
+    background: repeating-linear-gradient(
+        45deg,
+        #3c2209 0 20px,
+        #ff9c00 20px 40px /* Colores ajustados ligeramente para más contraste */
+    );
+    outline: 3px solid #221a0f;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Placa metálica */
+.plate {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background-color: #a0b8c4;
+    border: 2px solid #3c2209;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+/* El botón rojo clickeable */
+.button {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background-color: #cc2a1f;
+    border-radius: 50%;
+    border: 3px solid #1f1f1f;
+    box-shadow: 0 8px 0 #842a2a,
+                inset 0 -4px 6px rgba(0,0,0,0.3),
+                inset 0 4px 6px rgba(255, 100, 100, 0.5),
+                0 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    filter: brightness(0.7) saturate(0.8);
+    transition: transform 0.1s ease-out,
+                box-shadow 0.3s ease-in-out,
+                filter 0.3s ease-in-out;
+    overflow: visible; /* Permitir que pseudo-elementos se vean */
+    /* Importante: Quitar el outline por defecto de los botones */
+    outline: none;
+}
+/* Quitar el focus outline default de navegador */
+.button:focus {
+    outline: none;
+}
+.button::-moz-focus-inner { /* Para Firefox */
+    border: 0;
+}
+
+
+/* Pseudo-elementos para partículas */
+.button::before,
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0px solid rgba(255, 50, 50, 0.7);
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+    z-index: -1; /* Detrás del botón */
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+/* Tapa protectora */
+.cover {
+    position: absolute;
+    left: 50%;
+    bottom: 45px;
+    transform: translateX(-50%) rotateX(0deg);
+    width: 100px;
+    height: 85px;
+    background-color: rgba(80, 130, 235, 0.6); /* Azul semitransparente */
+    border: 4px solid #335599;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    transform-origin: 50% 0%; /* Pivote superior */
+    transition: transform 0.3s ease-in-out;
+    z-index: 3; /* Entre placa y botón */
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Reflejo en la tapa */
+.cover-highlight {
+    width: 100%;
+    height: 15px;
+    background-color: rgba(170, 200, 255, 0.6);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* --- Animaciones del Botón --- */
+
+/* Levantar la tapa al pasar el mouse por el CONTENEDOR */
+.emergency-button-container:hover .cover {
+    transform: translateX(-50%) rotateX(145deg);
+}
+
+/* Keyframes para pulso rojo (glow) */
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 8px 0 #842a2a,
+                    inset 0 -4px 6px rgba(0,0,0,0.3),
+                    inset 0 4px 6px rgba(255, 100, 100, 0.5),
+                    0 5px 10px rgba(0, 0, 0, 0.3),
+                    0 0 15px 5px rgba(255, 0, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 8px 0 #842a2a,
+                    inset 0 -4px 6px rgba(0,0,0,0.3),
+                    inset 0 4px 6px rgba(255, 100, 100, 0.5),
+                    0 5px 10px rgba(0, 0, 0, 0.3),
+                    0 0 25px 10px rgba(255, 50, 50, 0.9);
+    }
+    100% {
+        box-shadow: 0 8px 0 #842a2a,
+                    inset 0 -4px 6px rgba(0,0,0,0.3),
+                    inset 0 4px 6px rgba(255, 100, 100, 0.5),
+                    0 5px 10px rgba(0, 0, 0, 0.3),
+                    0 0 15px 5px rgba(255, 0, 0, 0.7);
+    }
+}
+
+/* Keyframes para partículas (burst) */
+@keyframes burst {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 1;
+        border-width: 5px;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+        border-width: 0px;
+    }
+}
+
+/* Aplicar efectos en hover del CONTENEDOR */
+.emergency-button-container:hover .button {
+    filter: brightness(1) saturate(1.2);
+    animation: pulse-red 1.5s infinite ease-in-out;
+    box-shadow: 0 8px 0 #842a2a,
+                inset 0 -4px 6px rgba(0,0,0,0.3),
+                inset 0 4px 6px rgba(255, 100, 100, 0.5),
+                0 5px 10px rgba(0, 0, 0, 0.3),
+                0 0 15px 5px rgba(255, 0, 0, 0.7); /* Estado inicial del glow */
+}
+.emergency-button-container:hover .button::before {
+    animation: burst 1.2s infinite ease-out;
+}
+.emergency-button-container:hover .button::after {
+    animation: burst 1.2s infinite ease-out;
+    animation-delay: 0.6s; /* Retraso */
+}
+
+/* Estilo del botón presionado */
+.button.pressed {
+    transform: translate(-50%, 5px); /* Mover un poco hacia abajo */
+    box-shadow: 0 3px 0 #842a2a, /* Sombra base reducida */
+                inset 0 -3px 4px rgba(0,0,0,0.4),
+                inset 0 3px 4px rgba(255, 100, 100, 0.4),
+                0 2px 5px rgba(0, 0, 0, 0.4),
+                /* Mantener glow si está en hover */
+                0 0 15px 5px rgba(255, 0, 0, 0.7);
+    animation-play-state: paused; /* Pausar pulso */
+}
+/* Pausar partículas al presionar */
+.emergency-button-container .button.pressed::before,
+.emergency-button-container .button.pressed::after {
+    animation-play-state: paused;
+}
+
+/* Reanudar animaciones al soltar (si sigue en hover) */
+.emergency-button-container:hover .button:not(.pressed) {
+    animation-play-state: running;
+}
+.emergency-button-container:hover .button:not(.pressed)::before,
+.emergency-button-container:hover .button:not(.pressed)::after {
+    animation-play-state: running;
+}
+
+/* === FIN: ESTILOS NUEVO BOTÓN DE EMERGENCIA === */
+
+/* --- ESTILO PARA EL FADE OVERLAY --- */
+#flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Fondo blanco sólido */
+    z-index: 200; /* Muy alto para cubrir todo */
+    opacity: 0; /* Inicia invisible */
+    pointer-events: none; /* No interactuable */
+    display: none; /* Inicia oculto */
+    /* --- TRANSICIÓN LENTA --- */
+    transition: opacity 1.5s ease-in-out; /* Duración y suavizado del fade */
+}
+
+/* Contenido principal (oculto) */
+#main-content {
+    display: none;
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+    max-width: 800px;
+    margin: 20px auto;
+}
